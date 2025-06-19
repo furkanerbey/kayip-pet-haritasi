@@ -2,36 +2,96 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kayıp Pet Haritası</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kayıp Pet Haritası</title>
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <!-- Leaflet -->
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script defer
+          src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- Tailwind (Opsiyonel, anında stil için) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Marker-Cluster -->
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script defer
+          src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
+  <!-- Stil / Supabase / App -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <!-- Supabase JS -->
-  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script defer src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script defer src="app.js"></script>
 </head>
-<body class="flex flex-col h-screen">
 
-  <!-- Üst Form -->
-  <header class="p-2 bg-white shadow flex gap-2 items-center shrink-0">
-    <h1 class="text-lg font-semibold flex-1">Kayıp Pet Haritası</h1>
-    <form id="reportForm" class="flex gap-2 items-center">
-      <input type="file" accept="image/*" capture="environment" id="photoInput" class="border p-1 text-sm" required />
-      <button type="submit" class="bg-pink-600 hover:bg-pink-700 text-white px-3 py-1 rounded">Gönder</button>
-    </form>
-  </header>
+<body>
+  <!-- Mini nav -->
+  <nav><button id="listBtn" class="ghost">Liste</button></nav>
 
-  <!-- Harita -->
-  <div id="map" class="flex-1"></div>
+  <!-- İLAN VER / İNCELE barı -->
+  <section id="actionBar">
+    <button id="btnCreate">İLAN VER</button>
+    <button id="btnBrowse">İNCELE</button>
+  </section>
 
-  <script src="app.js"></script>
+  <!-- Konumum düğmesi -->
+  <button id="locBtn" title="Konumum" class="loc-btn">📍</button>
+
+  <!-- Ana iki sütun -->
+  <main>
+    <!-- Harita -->
+    <section id="mapWrap"><div id="map"></div></section>
+
+    <!-- Kamera -->
+    <section id="camWrap">
+      <button id="camBtn">📷</button>
+
+      <form id="reportForm">
+        <input id="photoInput" type="file" accept="image/*"
+               capture="environment" hidden />
+        <button id="sendBtn" hidden disabled><span>Gönder</span></button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Sağ panel -->
+  <aside id="panel">
+    <header><span>Raporlar</span><button id="closePanel">✕</button></header>
+    <input id="filter" placeholder="Ara (mahalle / tarih)" />
+    <ul id="list"></ul>
+  </aside>
+
+  <!-- Konum onay kutusu -->
+  <div id="confirm" class="hide">
+    <div class="box">
+      <p id="addrText">Adres aranıyor…</p>
+      <div class="btns">
+        <button id="ok">Onayla</button>
+        <button id="cancel">Vazgeç</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Büyük ön-izleme -->
+  <div id="modal" class="hide">
+    <div class="modal-inner">
+      <button id="modalClose">✕</button>
+      <img id="modalImg" alt="Ön izleme" />
+      <h2 id="modalAddr">Adres</h2>
+      <p  id="modalDate">Tarih</p>
+    </div>
+  </div>
+</body>
+</html>
+<!-- … önceki içerik değişmedi … -->
+
+  <!-- Büyük ön-izleme -->
+  <div id="modal" class="hide">
+    …            
+  </div>
+
+  <!-- YENİ: bildirim kutucuğu -->
+  <div id="toast" class="toast"></div>
 </body>
 </html>
