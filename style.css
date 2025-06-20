@@ -1,3 +1,9 @@
+/* ===== Custom Font: Cold Snowflake ===== */
+@font-face{
+  font-family:"ColdSnowflake";
+  src:url("/public/fonts/ColdSnowflake.ttf") format("truetype");
+  font-display:swap;
+}
 /* ========== TEMEL ========== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{display:flex;flex-direction:column;height:100vh;background:#fafafa}
@@ -73,8 +79,18 @@ main{flex:1;display:flex}
         gap:14px;transition:opacity .4s}
 #splash.fade{opacity:0;pointer-events:none}
 #splash img#logo{width:120px;height:120px;border-radius:50%;object-fit:cover}
-#splash h1{font-size:30px;letter-spacing:1px}
-#splash p{font-size:15px;color:#555}
+#splash h1{
+  font-size:100px;
+  letter-spacing:1px;
+  font-family:"ColdSnowflake", sans-serif;   /* <── eklendi */
+}
+#splash p{
+  font-size:20px;                     /* yazı boyutu  */
+  font-weight:500;                    /* kalınlık     */
+  font-family:"Poppins", sans-serif;    /* istediğiniz font */
+  color:#555;                         /* metin rengi  */
+  margin-top:4px;
+}
 
 /* ==== TOAST ==== */
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
