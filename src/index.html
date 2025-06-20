@@ -5,48 +5,48 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kayıp Pet Haritası</title>
 
-  <!-- Leaflet -->
+  <!-- Leaflet & Marker-Cluster -->
   <link rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script defer
-          src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Marker-Cluster -->
   <link rel="stylesheet"
         href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet"
         href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
   <script defer
+          src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer
           src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-  <!-- Stil / Supabase / App -->
+  <!-- Stil • Supabase • App -->
   <link rel="stylesheet" href="style.css" />
   <script defer src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script defer src="app.js"></script>
 </head>
 
 <body>
-  <!-- Mini nav -->
+  <!-- ███ GİRİŞ (SPLASH) ███ -->
+  <div id="splash">
+    <!-- logo.png yerine kendi logonuzu koyabilirsiniz -->
+    <img id="logo" src="logo.png" alt="Logo" />
+    <h1>KAYIP PET</h1>
+    <p>Mahallende kaybolan canları bul</p>
+  </div>
+
+  <!-- ───────────────── UYGULAMA KISMI (hiç değişmedi) ───────────────── -->
   <nav><button id="listBtn" class="ghost">Liste</button></nav>
 
-  <!-- İLAN VER / İNCELE barı -->
   <section id="actionBar">
     <button id="btnCreate">İLAN VER</button>
     <button id="btnBrowse">İNCELE</button>
   </section>
 
-  <!-- Konumum düğmesi -->
-  <button id="locBtn" title="Konumum" class="loc-btn">📍</button>
+  <button id="locBtn" class="loc-btn" title="Konumum">📍</button>
 
-  <!-- Ana iki sütun -->
   <main>
-    <!-- Harita -->
     <section id="mapWrap"><div id="map"></div></section>
 
-    <!-- Kamera -->
     <section id="camWrap">
       <button id="camBtn">📷</button>
-
       <form id="reportForm">
         <input id="photoInput" type="file" accept="image/*"
                capture="environment" hidden />
@@ -55,25 +55,19 @@
     </section>
   </main>
 
-  <!-- Sağ panel -->
   <aside id="panel">
     <header><span>Raporlar</span><button id="closePanel">✕</button></header>
     <input id="filter" placeholder="Ara (mahalle / tarih)" />
     <ul id="list"></ul>
   </aside>
 
-  <!-- Konum onay kutusu -->
   <div id="confirm" class="hide">
     <div class="box">
       <p id="addrText">Adres aranıyor…</p>
-      <div class="btns">
-        <button id="ok">Onayla</button>
-        <button id="cancel">Vazgeç</button>
-      </div>
+      <div class="btns"><button id="ok">Onayla</button><button id="cancel">Vazgeç</button></div>
     </div>
   </div>
 
-  <!-- Büyük ön-izleme -->
   <div id="modal" class="hide">
     <div class="modal-inner">
       <button id="modalClose">✕</button>
@@ -82,16 +76,7 @@
       <p  id="modalDate">Tarih</p>
     </div>
   </div>
-</body>
-</html>
-<!-- … önceki içerik değişmedi … -->
 
-  <!-- Büyük ön-izleme -->
-  <div id="modal" class="hide">
-    …            
-  </div>
-
-  <!-- YENİ: bildirim kutucuğu -->
   <div id="toast" class="toast"></div>
 </body>
 </html>
