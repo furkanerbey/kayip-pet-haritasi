@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kayıp Pet – Giriş</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="landing">
+  <div class="landing-wrap">
+    <img src="../public/logo.png" alt="Logo" class="logo">
+    <h1>KAYIP PET</h1>
+
+    <button id="goReport" class="glass-btn">BİLDİR</button>
+    <button id="goAbout"  class="glass-btn hollow">AMAÇ</button>
+  </div>
+
+  <script>
+    document.getElementById('goReport').onclick = () => location.href = 'app.html';
+    document.getElementById('goAbout' ).onclick = () => location.href = 'purpose.html';
+  </script>
+</body>
+</html>

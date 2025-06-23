@@ -82,3 +82,41 @@ main{flex:1;display:flex}
        opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:10001}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast.success{background:#4caf50}.toast.error{background:#f44336}
+/* ============ Landing & Glass ============ */
+.landing{
+  min-height:100dvh;
+  display:flex;justify-content:center;align-items:center;
+  background:linear-gradient(135deg,#3f51b5 0%,#2196f3 50%,#00bcd4 100%);
+  color:#fff;text-align:center;
+}
+
+.landing-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+}
+
+.landing .logo{width:100px;height:100px;border-radius:50%;object-fit:cover}
+
+.glass-btn{
+  backdrop-filter:blur(14px) saturate(120%);
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:14px;
+  padding:14px 36px;
+  font-size:18px;color:#fff;letter-spacing:.5px;
+  cursor:pointer;transition:.2s;
+}
+.glass-btn:hover{background:rgba(255,255,255,.25)}
+.glass-btn.hollow{background:rgba(255,255,255,.05)}
+
+.about-card{
+  max-width:420px;padding:32px 26px;
+  display:flex;flex-direction:column;gap:18px;align-items:center;
+}
+.glass-card{
+  backdrop-filter:blur(18px) saturate(120%);
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:20px;color:#fff;
+}
+.about-card h2{font-size:26px;margin-bottom:8px}
+.about-card p{font-size:16px;line-height:1.5}
