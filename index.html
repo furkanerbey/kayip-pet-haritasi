@@ -1,82 +1,23 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kayıp Pet Haritası</title>
-
-  <!-- Leaflet & Marker-Cluster -->
-  <link rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet"
-        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-  <link rel="stylesheet"
-        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-  <script defer
-          src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script defer
-          src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-
-  <!-- Stil • Supabase • App -->
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="https://unpkg.com/@supabase/supabase-js@2"></script>
-  <script defer src="app.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kayıp Pet – Giriş</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body class="landing">
+  <div class="landing-wrap">
+    <img src="../public/logo.png" alt="Logo" class="logo">
+    <h1>KAYIP PET</h1>
 
-<body>
-  <!-- ███ GİRİŞ (SPLASH) ███ -->
-  <div id="splash">
-    <!-- logo.png yerine kendi logonuzu koyabilirsiniz -->
-   <img id="logo" src="../public/logo.png" alt="Logo" />
-    <h1>CAT & DOG</h1>
-    <p>ÇEK, BİLDİR, BULDUR!</p>
+    <button id="goReport" class="glass-btn">BİLDİR</button>
+    <button id="goAbout"  class="glass-btn hollow">AMAÇ</button>
   </div>
 
-  <!-- ───────────────── UYGULAMA KISMI (hiç değişmedi) ───────────────── -->
-  <nav><button id="listBtn" class="ghost">Liste</button></nav>
-
-  <section id="actionBar">
-    <button id="btnCreate">BİLDİR</button>
-    <button id="btnBrowse">İHBARLAR</button>
-  </section>
-
-  <button id="locBtn" class="loc-btn" title="Konumum">📍</button>
-
-  <main>
-    <section id="mapWrap"><div id="map"></div></section>
-
-    <section id="camWrap">
-      <button id="camBtn">📷</button>
-      <form id="reportForm">
-        <input id="photoInput" type="file" accept="image/*"
-               capture="environment" hidden />
-        <button id="sendBtn" hidden disabled><span>Gönder</span></button>
-      </form>
-    </section>
-  </main>
-
-  <aside id="panel">
-    <header><span>Raporlar</span><button id="closePanel">✕</button></header>
-    <input id="filter" placeholder="Ara (mahalle / tarih)" />
-    <ul id="list"></ul>
-  </aside>
-
-  <div id="confirm" class="hide">
-    <div class="box">
-      <p id="addrText">Adres aranıyor…</p>
-      <div class="btns"><button id="ok">Onayla</button><button id="cancel">Vazgeç</button></div>
-    </div>
-  </div>
-
-  <div id="modal" class="hide">
-    <div class="modal-inner">
-      <button id="modalClose">✕</button>
-      <img id="modalImg" alt="Ön izleme" />
-      <h2 id="modalAddr">Adres</h2>
-      <p  id="modalDate">Tarih</p>
-    </div>
-  </div>
-
-  <div id="toast" class="toast"></div>
+  <script>
+    document.getElementById('goReport').onclick = () => location.href = 'app.html';
+    document.getElementById('goAbout' ).onclick = () => location.href = 'purpose.html';
+  </script>
 </body>
 </html>
