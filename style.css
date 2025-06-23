@@ -1,8 +1,7 @@
 /* ===== Custom Font: Cold Snowflake ===== */
 @font-face{
   font-family:"ColdSnowflake";
-  src:url("/public/fonts/ColdSnowflake.ttf") format("truetype");
-  font-display:swap;
+  src:url("../public/fonts/ColdSnowflake.ttf") format("truetype");
 }
 /* ========== TEMEL ========== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
