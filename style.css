@@ -98,3 +98,24 @@ main{flex:1;display:flex}
        opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:10001}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast.success{background:#4caf50}.toast.error{background:#f44336}
+/* ==== Mobil düzen: harita + kamera alt alta ==== */
+@media (max-width: 600px){
+  main{                 /* sütun olarak diz */
+    flex-direction:column;
+  }
+
+  #mapWrap,             /* ikisi de tam genişlik */
+  #camWrap{
+    width:100%;
+    max-width:100%;
+  }
+
+  #map{                 /* harita yüksekliğini biraz kıs */
+    height:50vh;        /* ekranın yarısı */
+    max-width:100%;
+  }
+
+  #camWrap{             /* kamera alanına üst boşluk */
+    padding:24px 0;
+  }
+}
