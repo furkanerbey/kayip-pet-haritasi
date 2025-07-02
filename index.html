@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kayıp Pet Haritası</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <img id="logo" src="public/logo.png" alt="Logo">
+    <h1>KAYIP PET</h1>
+    <p>Haritaya tıklayın</p>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <button id="listBtn" class="ghost">📋 Liste</button>
+  </nav>
+
+  <!-- Action Bar -->
+  <div id="actionBar">
+    <button id="btnCreate">📷 BİLDİR</button>
+    <button id="btnBrowse">🗂️ GÖZAT</button>
+  </div>
+
+  <!-- Location Button -->
+  <button id="locBtn" class="loc-btn">📍</button>
+
+  <!-- Main Content -->
+  <main>
+    <div id="mapWrap">
+      <div id="map"></div>
+    </div>
+    <div id="camWrap">
+      <form id="reportForm">
+        <button type="button" id="camBtn">📷</button>
+        <input type="file" id="photoInput" accept="image/*" style="display:none">
+        <button type="submit" id="sendBtn" hidden disabled>
+          <span>Gönder</span>
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Right Panel -->
+  <div id="panel">
+    <header>
+      <span>Kayıp Pet Listesi</span>
+      <button id="closePanel">✕</button>
+    </header>
+    <input type="text" id="filter" placeholder="Ara...">
+    <ul id="list"></ul>
+  </div>
+
+  <!-- Location Confirmation -->
+  <div id="confirm" class="hide">
+    <div class="box">
+      <div id="addrText">Konum seçiliyor...</div>
+      <div class="btns">
+        <button id="ok">Tamam</button>
+        <button id="cancel">İptal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="hide">
+    <div class="modal-inner">
+      <button id="modalClose">✕</button>
+      <img id="modalImg" alt="Pet Photo">
+      <div id="modalAddr"></div>
+      <div id="modalDate"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="src/config.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>
